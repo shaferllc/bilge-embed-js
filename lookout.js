@@ -86,4 +86,19 @@
     );
     send(payload);
   });
+
+  var reportHttp404 = typeof window.LOOKOUT_REPORT_HTTP_404 === 'undefined' || window.LOOKOUT_REPORT_HTTP_404 !== false;
+  if (reportHttp404 && typeof performance !== 'undefined' && performance.getEntriesByType) {
+    var nav = performance.getEntriesByType('navigation')[0];
+    if (nav && nav.responseStatus === 404) {
+      send(buildPayload(
+        'HTTP 404 Not Found: ' + (typeof location !== 'undefined' ? location.pathname : '/'),
+        'warning',
+        'HttpNotFound',
+        null,
+        null,
+        null
+      ));
+    }
+  }
 })();
