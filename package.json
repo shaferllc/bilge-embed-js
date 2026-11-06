@@ -1,10 +1,10 @@
 {
     "$schema": "https://json.schemastore.org/package.json",
-    "name": "@lookout/embed",
+    "name": "@bilge/embed",
     "version": "0.1.0",
-    "description": "Lookout browser snippet for uncaught errors and unhandled rejections. Served from a Lookout app at /js/lookout.js; mirrored as a standalone repo for versioning.",
+    "description": "Bilge browser snippet for uncaught errors and unhandled rejections. Served from a Bilge app at /js/bilge.js; mirrored as a standalone repo for versioning.",
     "license": "MIT",
     "private": false,
-    "main": "lookout.js",
-    "files": ["lookout.js", "pulse.js", "package.json", "README.md"]
+    "main": "bilge.js",
+    "files": ["bilge.js", "pulse.js", "package.json", "README.md"]
 }

@@ -1,11 +1,11 @@
 /**
- * Lookout — frontend error reporting snippet.
- * Include on any page to send uncaught errors and unhandled promise rejections to Lookout.
- * Canonical URL: <your Lookout origin>/js/lookout.js
+ * Bilge — frontend error reporting snippet.
+ * Include on any page to send uncaught errors and unhandled promise rejections to Bilge.
+ * Canonical URL: <your Bilge origin>/js/bilge.js
  *
  * Configuration (one of):
- * - data-ingest-url / data-api-key on the script tag (or data-lookout-ingest-url / data-lookout-api-key)
- * - window.LOOKOUT_INGEST_URL and window.LOOKOUT_API_KEY
+ * - data-ingest-url / data-api-key on the script tag (or data-bilge-ingest-url / data-bilge-api-key)
+ * - window.BILGE_INGEST_URL and window.BILGE_API_KEY
  */
 (function () {
   'use strict';
@@ -13,12 +13,12 @@
   var script = document.currentScript;
   var ingestUrl =
     (script && script.getAttribute('data-ingest-url')) ||
-    (script && script.getAttribute('data-lookout-ingest-url')) ||
-    (typeof window.LOOKOUT_INGEST_URL !== 'undefined' ? window.LOOKOUT_INGEST_URL : '');
+    (script && script.getAttribute('data-bilge-ingest-url')) ||
+    (typeof window.BILGE_INGEST_URL !== 'undefined' ? window.BILGE_INGEST_URL : '');
   var apiKey =
     (script && script.getAttribute('data-api-key')) ||
-    (script && script.getAttribute('data-lookout-api-key')) ||
-    (typeof window.LOOKOUT_API_KEY !== 'undefined' ? window.LOOKOUT_API_KEY : '');
+    (script && script.getAttribute('data-bilge-api-key')) ||
+    (typeof window.BILGE_API_KEY !== 'undefined' ? window.BILGE_API_KEY : '');
 
   if (!ingestUrl || !apiKey) return;
 
@@ -87,7 +87,7 @@
     send(payload);
   });
 
-  var reportHttp404 = typeof window.LOOKOUT_REPORT_HTTP_404 === 'undefined' || window.LOOKOUT_REPORT_HTTP_404 !== false;
+  var reportHttp404 = typeof window.BILGE_REPORT_HTTP_404 === 'undefined' || window.BILGE_REPORT_HTTP_404 !== false;
   if (reportHttp404 && typeof performance !== 'undefined' && performance.getEntriesByType) {
     var nav = performance.getEntriesByType('navigation')[0];
     if (nav && nav.responseStatus === 404) {
