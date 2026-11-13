@@ -1,7 +1,7 @@
 {
     "$schema": "https://json.schemastore.org/package.json",
     "name": "@bilge/embed",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Bilge browser snippet for uncaught errors and unhandled rejections. Served from a Bilge app at /js/bilge.js; mirrored as a standalone repo for versioning.",
     "license": "MIT",
     "private": false,
